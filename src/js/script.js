@@ -1,6 +1,6 @@
 import Requisicoes from "./requisicoes.js";
 
- /* class CriandoDOM{
+  class CriandoDOM{
     static paginaCadastro(){
         const div = document.getElementById("cadastro")
         const form = document.createElement("form")
@@ -50,10 +50,3 @@ import Requisicoes from "./requisicoes.js";
 }
 CriandoDOM.paginaCadastro() 
 
- */
-console.log( await Requisicoes.cadastro({
-    "username" : "ki",
-    "email": "b@hll",
-    "avatarUrl": "https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/07/neytiri_in_avatar_2-wide-do-we-really-need-avatar-2.jpeg",
-    "password":  "Abc950"
-}))
