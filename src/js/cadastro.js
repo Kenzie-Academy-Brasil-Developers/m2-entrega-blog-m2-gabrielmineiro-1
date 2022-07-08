@@ -1,6 +1,7 @@
 import Requisicoes from "./requisicoes.js";
 
-  class CriandoDOM{
+
+class CriandoDOM {
     static paginaCadastro(){
         const div = document.getElementById("cadastro")
         const form = document.createElement("form")
@@ -37,16 +38,19 @@ import Requisicoes from "./requisicoes.js";
         form.addEventListener("submit", async (event)=>{
             event.preventDefault()
             const dadosCadastro ={
-                "username" : username.value,
-                "email": email.value,
-                "avatarUrl": avatar.value,
-                "password":  password.value
+                username : username.value,
+                email: email.value,
+                avatarUrl: avatar.value,
+                password:  password.value
             }
-            await Requisicoes.cadastro(JSON.stringify(dadosCadastro))
+             await Requisicoes.cadastro(dadosCadastro)
+            // location.href = "./login.html"
         })
         form.append(username,email,avatar, password, button)
         div.append(form)
     }
 }
+
+
 CriandoDOM.paginaCadastro() 
 
