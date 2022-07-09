@@ -2,7 +2,7 @@ class Requisicoes{
     static url = "https://blog-m2.herokuapp.com/users/register"
     
   
-    
+    //html de cadastro
     static async cadastro(user) {
         const response = await fetch(
           "https://blog-m2.herokuapp.com/users/register",
@@ -15,11 +15,12 @@ class Requisicoes{
           }
         );
         const data = await response.json();
-        window.localStorage.setItem("imagem", user.avatarUrl)
         console.log(data);
+        
         return data;
       } 
       
+      //html de login
       static async login(loginData){
         const response1 = await fetch("https://blog-m2.herokuapp.com/users/login",
         {
@@ -31,11 +32,11 @@ class Requisicoes{
         }
         );
         const data1 = await response1.json()
-        console.log(data1)
         window.localStorage.setItem("id", data1.userId)
         window.localStorage.setItem("token", data1.token)
         return data1
       }
+    
     
     static async getUserByID(id){
         const token = window.localStorage.getItem("token")
@@ -47,7 +48,6 @@ class Requisicoes{
             }
         })
         const resposta = await response2.json()
-        console.log(resposta)
         return resposta
     }
 
@@ -61,7 +61,6 @@ class Requisicoes{
             }
         })
         const retorno = await response3.json()
-        console.log(retorno.data)
         return retorno
     }
     static async getPostEspecifico(id){
@@ -74,7 +73,6 @@ class Requisicoes{
             }
         })
         const retorno = await response4.json()
-        console.log(retorno)
         return retorno
     }
     static async criarPost(post){
@@ -88,7 +86,6 @@ class Requisicoes{
             body: JSON.stringify(post)
         })
         const retorno = await response5.json()
-        console.log(retorno)
         return retorno
     }
     
@@ -103,8 +100,19 @@ class Requisicoes{
             body: JSON.stringify(novoPost)
          })
          const retorno = await response6.json()
-        console.log(retorno)
         return retorno
+    }
+    
+    static async delete(id){
+        const token = window.localStorage.getItem("token")
+        const response7 = await fetch(`https://blog-m2.herokuapp.com/posts/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type":"application/json",
+                Authorization: `Bearer ${token}`
+            },
+         })
+         return response7
     }
 }
 

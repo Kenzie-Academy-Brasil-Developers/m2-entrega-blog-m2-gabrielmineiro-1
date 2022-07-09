@@ -30,12 +30,11 @@ class CriandoForm{
                 email: email.value,
                 password: password.value
             }
-             await Requisicoes.login(dadosCadastro)
-             //location.href = "./login.html"
-        })
-    }
+            await Requisicoes.login(dadosCadastro)
+            .then(res => res.userId)
+            .then(res => {if(res !== undefined){
+               location.href="./homepage.html"
+            }})
+    })}
 }
 CriandoForm.login()
-Requisicoes.alterarPost({
-    content: "Funcionou"
-}, 758)
