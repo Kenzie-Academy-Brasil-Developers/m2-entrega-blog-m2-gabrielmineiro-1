@@ -1,8 +1,8 @@
 import Requisicoes from "./requisicoes.js"
- Requisicoes.login({
-    email: "gabrie789456@outlook.com",
+  Requisicoes.login({
+    email: "gabrie@outlook.com.br",
     password: "DALEdale2003"
-})
+}) 
 class Homepage{
     static async header(){
         const append = document.getElementById("append")
@@ -22,7 +22,6 @@ class Homepage{
         h2.innerHTML = user
         img.src= avatar
         button.innerHTML = "logout"
-
         header.append(img, h2, button)
         append.append(header)
     }
@@ -50,7 +49,7 @@ class Homepage{
                 this.timeLine(element.content, element.user.avatarUrl, element.user.username, element.id)
             })))
             .catch(err => console.log(err))
-            input.value=""
+            input.value = ""
             return data
 
         })

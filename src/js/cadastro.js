@@ -51,7 +51,7 @@ class CriandoDOM {
              await Requisicoes.cadastro(dadosCadastro)
              .then(res => res.id)
              .then(res => {if(res !== undefined){
-                location.href="./index/login.html"
+                location.href="./index.html"
              }}
          )})
         form.append(username,email,avatar, password, button)
