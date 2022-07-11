@@ -33,7 +33,7 @@ class CriandoForm{
             await Requisicoes.login(dadosCadastro)
             .then(res => res.userId)
             .then(res => {if(res !== undefined){
-               location.href="./homepage.html"
+               location.href="./src/index/homepage.html"
             }})
     })}
 }
